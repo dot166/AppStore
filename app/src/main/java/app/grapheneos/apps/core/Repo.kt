@@ -141,6 +141,7 @@ fun findRPackage(variants: List<RPackage>, channel: ReleaseChannel): RPackage {
 }
 
 enum class PackageSource(@param:StringRes val uiName: Int) {
+    Dot166(R.string.pkg_source_dot166),
     GrapheneOS(R.string.pkg_source_grapheneos),
     GrapheneOS_build(R.string.pkg_source_grapheneos_build),
     Mirror(R.string.pkg_source_mirror),
