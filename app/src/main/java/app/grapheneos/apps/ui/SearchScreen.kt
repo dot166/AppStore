@@ -58,6 +58,7 @@ class SearchScreen : PackageListFragment<SearchScreenBinding>() {
         }
 
         val srcFilters = mapOf(
+            views.pkgSourceDot166 to PackageSource.Dot166,
             views.pkgSourceGrapheneOS to PackageSource.GrapheneOS,
             views.pkgSourceMirror to PackageSource.Mirror,
             views.pkgSourceGoogle to PackageSource.Google,

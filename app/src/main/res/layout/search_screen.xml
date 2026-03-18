@@ -49,6 +49,13 @@
             app:singleLine="true">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/pkg_source_Dot166"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pkg_source_dot166" />
+
+            <com.google.android.material.chip.Chip
                 android:id="@+id/pkg_source_GrapheneOS"
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
