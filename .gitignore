@@ -15,5 +15,6 @@
 .cxx
 keystore.properties
 *.keystore
+*.jks
 local.properties
 /releases
