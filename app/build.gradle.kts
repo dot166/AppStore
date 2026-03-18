@@ -47,10 +47,10 @@ android {
         versionName = versionCode.toString()
 
         buildConfigField(String::class.java.name, "REPO_BASE_URL",
-            "\"${System.getenv("REPO_BASE_URL") ?: "https://apps.grapheneos.org"}\"")
+            "\"${System.getenv("REPO_BASE_URL") ?: "https://dot166.github.io/packages"}\"")
 
         buildConfigField(String::class.java.name, "REPO_PUBLIC_KEY", "\"${
-            System.getenv("REPO_PUBLIC_KEY") ?: "RWQtZwEu1br1lMh911L3yPOs97cQb9LOks/ALBbqGl21ul695ocWR/ir"
+            System.getenv("REPO_PUBLIC_KEY") ?: "RWTMjeeBvIRNHHI3iWmbrY9qQXKQZ5v518Ds662VWNRooehCF4h7QCdO"
         }\"")
 
         buildConfigField(String::class.java.name, "REPO_KEY_VERSION",
