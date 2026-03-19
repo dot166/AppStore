@@ -160,7 +160,7 @@ class RPackageContainer(val repo: Repo, val packageName: String,
                         val manifestPackageName: String,
                         json: JSONObject)
 {
-    val description = json.opt("description") as String?
+    val description = getLocalizedDescription(json)
     val source: PackageSource = (json.opt("source") as String?).let {
         if (it != null) {
             PackageSource.valueOf(it)
@@ -303,6 +303,34 @@ private fun parseDependencies(json: JSONObject, repo: Repo): Array<Dependency>? 
     }
 }
 
+fun getLocalizedLabel(json: JSONObject): String {
+    val locales = LocaleList.getDefault()
+    for (i in 0 until locales.size()) {
+        val locale = locales[i]
+        val fullTag = locale.toLanguageTag()
+        val fullKey = "label[$fullTag]"
+        if (json.has(fullKey)) return json.getString(fullKey)
+        val langTag = locale.language
+        val langKey = "label[$langTag]"
+        if (json.has(langKey)) return json.getString(langKey)
+    }
+    return json.getString("label")
+}
+
+fun getLocalizedDescription(json: JSONObject): String? {
+    val locales = LocaleList.getDefault()
+    for (i in 0 until locales.size()) {
+        val locale = locales[i]
+        val fullTag = locale.toLanguageTag()
+        val fullKey = "description[$fullTag]"
+        if (json.has(fullKey)) return json.getString(fullKey)
+        val langTag = locale.language
+        val langKey = "description[$langTag]"
+        if (json.has(langKey)) return json.getString(langKey)
+    }
+    return json.opt("description") as String?
+}
+
 // "Repo package"
 class RPackage(val common: RPackageContainer, val versionCode: Long, val abis: Array<String>?, repo: Repo, json: JSONObject) {
     val packageName: String = common.packageName
@@ -311,9 +339,9 @@ class RPackage(val common: RPackageContainer, val versionCode: Long, val abis: A
     val source: PackageSource
         get() = common.source
 
-    val label = json.getString("label")
+    val label = getLocalizedLabel(json)
     val versionName = json.opt("versionName") as String? ?: versionCode.toString()
-    val description = json.opt("description") as String? ?: common.description
+    val description = getLocalizedDescription(json) ?: common.description
     val releaseNotes = json.opt("releaseNotes") as String?
 
     val dependencies: Array<Dependency> = parseDependencies(json, repo) ?: common.dependencies ?: emptyDependencyArray
