@@ -424,10 +424,10 @@ object PackageStates : LifecycleEventObserver {
     }
 
     fun maybeGetReleaseChannelOverride(name: String): ReleaseChannel? {
-        val ch = preferredReleaseChannelOverrides.getString(name, null)
-        if (ch != null) {
-            return ReleaseChannel.valueOf(ch)
-        }
+        //val ch = preferredReleaseChannelOverrides.getString(name, null)
+        //if (ch != null) {
+        //    return ReleaseChannel.valueOf(ch)
+        //}
         return null
     }
 
