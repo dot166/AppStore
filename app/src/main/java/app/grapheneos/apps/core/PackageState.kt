@@ -170,13 +170,14 @@ class PackageState(val pkgName: String, val id: Long) {
     }
 
     fun preferredReleaseChannel(rPackageContainer: RPackageContainer = this.rPackage.common): ReleaseChannel {
-        val group = rPackageContainer.group
-        val override = if (group != null) {
-            group.releaseChannelOverride
-        } else {
-            releaseChannelOverride
-        }
-        return override ?: PackageStates.defaultReleaseChannel
+        //val group = rPackageContainer.group
+        //val override = if (group != null) {
+        //    group.releaseChannelOverride
+        //} else {
+        //    releaseChannelOverride
+        //}
+        //return override ?: PackageStates.defaultReleaseChannel
+        return PackageStates.defaultReleaseChannel
     }
 }
 
