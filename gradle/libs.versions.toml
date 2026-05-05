@@ -15,6 +15,7 @@ lifecycle = "2.10.0"
 material = "1.13.0"
 navigation = "2.9.8"
 preferenceKtx = "1.2.1"
+settingslib = "104.2.25"
 swiperefreshlayout = "1.2.0"
 
 [libraries]
@@ -37,6 +38,8 @@ kotlin-retry-result = { group = "com.michael-bull.kotlin-retry", name = "kotlin-
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+settingslib-category = { module = "io.github.dot166:SettingsLibCategory", version.ref = "settingslib" }
+settingslib-collapsingtoolbarbaseactivity = { module = "io.github.dot166:SettingsLibCollapsingToolbarBaseActivity", version.ref = "settingslib" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

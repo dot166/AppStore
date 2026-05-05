@@ -1,5 +1,6 @@
 package app.grapheneos.apps.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -18,6 +19,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.viewbinding.ViewBinding
+import app.grapheneos.apps.R
 import com.google.android.material.transition.platform.MaterialSharedAxis
 
 abstract class ViewBindingFragment<T : ViewBinding> : Fragment(), MenuProvider {
@@ -64,7 +66,12 @@ abstract class ViewBindingFragment<T : ViewBinding> : Fragment(), MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return menuItem.onNavDestinationSelected(findNavController())
+        if (menuItem.itemId == R.id.settings_screen) {
+            requireContext().startActivity(Intent(context, SettingsActivity::class.java))
+            return true
+        } else {
+            return menuItem.onNavDestinationSelected(findNavController())
+        }
     }
 }
 

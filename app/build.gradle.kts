@@ -115,4 +115,7 @@ dependencies {
 
     implementation(libs.glide.core)
     ksp(libs.glide.ksp)
+
+    implementation(libs.settingslib.collapsingtoolbarbaseactivity)
+    implementation(libs.settingslib.category)
 }
